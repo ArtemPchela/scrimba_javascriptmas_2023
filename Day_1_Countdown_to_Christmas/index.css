@@ -24,7 +24,8 @@ body {
 	background-color: var(--snow);
 }
 
-.container {
+.container,
+.birthday-container {
 	display: flex;
 	flex-direction: column;
 	background: var(--wine-red);
@@ -33,6 +34,11 @@ body {
 	border-radius: 5px;
 	box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px -1px,
 	rgba(0, 0, 0, 0.06) 0 2px 4px -1px;
+}
+
+.birthday-container {
+	background: var(--gold);
+	color: var(--dark-green);
 }
 
 .countdown-display {
