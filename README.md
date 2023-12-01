@@ -7,4 +7,4 @@ The event usually takes place during the month of December and is designed to he
 JavaScript developers improve their skills and have fun while doing it.
 
 ## 2023 Challenge Advent Calendar 🎄
-🎄 Day 1: Countdown to Christmas
+🎄 Day 1: [Countdown to Christmas](https://github.com/ArtemPchela/scrimba_javascriptmas_2023/tree/main/Day_1_Countdown_to_Christmas)
