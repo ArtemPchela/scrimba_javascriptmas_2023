@@ -11,16 +11,17 @@ const christmasCountdownDisplay = document.getElementById(
 
 function calculateTimeDifference(timeDifference) {
   const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+  const hours = Math.floor(
+    (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+  );
   const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
   return { days, hours, minutes, seconds };
 }
 
-function renderCountdown() {
+function renderCountdown(currentDate) {
   const christmas = 25;
-  const currentDate = new Date();
   countdownDisplay.textContent = christmas - currentDate.getDate();
 
   const timeDifference =
@@ -31,10 +32,9 @@ function renderCountdown() {
   }m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 }
 
-function renderBirthdayCountdown() {
+function renderBirthdayCountdown(currentDate) {
   const birthdayMonth = 9;
   const birthdayDay = 13;
-  const currentDate = new Date();
   const nextBirthdayDate = new Date(
     currentDate.getFullYear(),
     birthdayMonth - 1,
@@ -54,8 +54,11 @@ function renderBirthdayCountdown() {
   }m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 }
 
-renderCountdown();
-setInterval(renderCountdown, 1000);
+function updateCountdowns() {
+  const currentDate = new Date();
+  renderCountdown(currentDate);
+  renderBirthdayCountdown(currentDate);
+}
 
-renderBirthdayCountdown();
-setInterval(renderBirthdayCountdown, 1000);
+updateCountdowns();
+setInterval(updateCountdowns, 1000);
